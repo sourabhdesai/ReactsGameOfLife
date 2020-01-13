@@ -2,7 +2,7 @@
   "name": "reacts-game-of-life",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://reactsgameoflife.github.io/",
+  "homepage": "https://sourabhdesai.github.io/ReactsGameOfLife/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
