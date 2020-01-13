@@ -1,0 +1,13 @@
+.game-cell {
+    height: 100%;
+    width: 100%;
+}
+
+.alive {
+    opacity: 1.0;
+}
+
+.dead {
+    background-color: black;
+    opacity: 0.9;
+}
