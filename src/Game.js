@@ -24,15 +24,27 @@ class Game extends Component {
     updateGridStates() {
         const newGridStates = _.times(this.state.boardHeight, (rowIdx) => {
             return _.times(this.state.boardWidth, (colIdx) => {
+                const northRowIdx = this.wrapHeight(rowIdx - 1);
+                const southRowIdx = this.wrapHeight(rowIdx + 1);
+                const eastColIdx = this.wrapWidth(colIdx + 1);
+                const westColIdx = this.wrapWidth(colIdx - 1);
                 const neighbors = [
                     // North
-                    this.state.gridStates[this.wrapHeight(rowIdx - 1)][colIdx],
+                    this.state.gridStates[northRowIdx][colIdx],
+                    // North-east
+                    this.state.gridStates[northRowIdx][eastColIdx],
+                    // North-west
+                    this.state.gridStates[northRowIdx][westColIdx],
                     // South
-                    this.state.gridStates[this.wrapHeight(rowIdx + 1)][colIdx],
+                    this.state.gridStates[southRowIdx][colIdx],
+                    // South-east
+                    this.state.gridStates[southRowIdx][eastColIdx],
+                    // South-west
+                    this.state.gridStates[southRowIdx][westColIdx],
                     // East
-                    this.state.gridStates[rowIdx][this.wrapWidth(colIdx + 1)],
+                    this.state.gridStates[rowIdx][eastColIdx],
                     // West
-                    this.state.gridStates[rowIdx][this.wrapWidth(colIdx - 1)]
+                    this.state.gridStates[rowIdx][westColIdx]
                 ];
                 const numLiveNeighbors = _.sum(neighbors);
                 const isAlive = this.state.gridStates[rowIdx][colIdx];
